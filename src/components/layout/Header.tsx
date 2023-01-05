@@ -32,7 +32,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <HeaderTitle>The Recipe Collection</HeaderTitle>
-      <ButtonStyled onClick={switchTheme}>{theme}</ButtonStyled>
+      <ButtonStyled onClick={switchTheme} label={theme} />
     </HeaderContainer>
   );
 };
