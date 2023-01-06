@@ -2,7 +2,7 @@
 
 Coding Task for Full Stack Developer at evulpo
 
-![Visual Refference](single_choice.png)
+![Wolfie](./assets/mascot.png)
 
 ## Task Descriptiom
 
@@ -22,3 +22,14 @@ Once you are done with your development, send me the link via Private Message on
 3. Data Connection and States
 4. Memory Load and Performance
 5. Front End
+
+## Design with A.I.
+
+The idea was to try to use some of the A.I as tools, and ended up with design finilized in Figma
+
+1. For logo design used Looka website
+2. For app design tryed DALL-E, Lexica, Stable Diffusion, though ended up using Midjourney, as it was giving results closer to what i needed
+3. For mascot used stable diffusion
+4. ChatGPT decided on font, first we though on Calibri as this is a sans-serif font that is known for its clean, modern look and easy readability. It is a popular choice for websites and is available on most computers and devices. In the end we decided to go for Lato google font, it is safer option as it is webfont and is also popular choice for websites and is available in a wide range of styles and weights.
+
+![Logo](./assets/logo.svg)
