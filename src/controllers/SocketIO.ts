@@ -1,8 +1,8 @@
 import { io } from "socket.io-client";
 
-const servicesIp = "127.0.0.1";
-
-const socketIO = io(`ws://${servicesIp}:4567`);
+const socketIO = io(`ws://localhost:4567`, {
+  transports: ["websocket"],
+});
 socketIO.on("connect", () => {
   console.log("connect");
 });

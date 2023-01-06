@@ -1,33 +1,35 @@
 const { Server } = require("socket.io");
 const fetch = require("node-fetch");
+const path = require('path');
 
 const express = require('express');
-const app = express();
-const path = require('path');
+const adminExpress = express();
 const router = express.Router();
 
-
-const { SOCKET_IO_SERVER, SOCKET_IO_PORT, FETCH_URL, EXPRESS_ADMIN_PORT } = require("./constants/api.js");
+const { SOCKET_IO_PORT, FETCH_URL, EXPRESS_ADMIN_PORT } = require("./constants/api.js");
 
 let values = [];
 
 // sockets
 const socketsIO = new Server({
-  cors: { origin: SOCKET_IO_SERVER },
+  cors: { origin: "http://localhost" },
   maxHttpBufferSize: 1e11,
   pingTimeout: 10000000,
 });
 
 socketsIO.on("connection", client => {
-  console.log(values);
   client.on("disconnect", () => {
     client.disconnect(true);
   });
+
+  client.on("adminConnection", () => {
+    console.log("admin connected");
+  });
+
+  client.on("clientConnection", () => {
+    console.log("client connected");
+  });
 });
-
-socketsIO.listen(SOCKET_IO_PORT);
-console.log("listening on port ", SOCKET_IO_PORT);
-
 
 // google data
 fetch(FETCH_URL).then(response => response.json()).then(response => {
@@ -40,15 +42,19 @@ router.get('/',function(req,res){
   res.sendFile(path.join(__dirname, 'admin/index.html'));
 });
 
-app.get('/index.js', function(req, res){
+router.get('/index.js', function(req, res){
   res.sendFile(path.join(__dirname, 'admin/index.js'));
 });
 
-app.get('/values', function(req, res){
-  res.send({values});
+router.get('/socket.io.js', function(req, res){
+  res.sendFile(path.join(__dirname, 'libs/socket.io.min.js'));
 });
 
-app.use('/', router);
-app.listen(EXPRESS_ADMIN_PORT, () => {
-  console.log(`Server listening at ${EXPRESS_ADMIN_PORT}`);
+adminExpress.use('/', router);
+
+socketsIO.listen(SOCKET_IO_PORT);
+console.log("Socket Server listening on port", SOCKET_IO_PORT);
+
+adminExpress.listen(EXPRESS_ADMIN_PORT, () => {
+  console.log("Admin Server listening on port", EXPRESS_ADMIN_PORT);
 });
