@@ -14,7 +14,7 @@ export const parameters = {
 }
 
 export const decorators = [
-  (Story) => {
+  (Story) => { 
     return (
       <ThemeProvider theme={darkTheme}>
           <StyleLayout>

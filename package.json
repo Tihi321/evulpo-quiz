@@ -45,7 +45,7 @@
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "server": "nodemon server/index.js",
+    "server": "nodemon node/index.js",
     "client": "react-scripts start",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
