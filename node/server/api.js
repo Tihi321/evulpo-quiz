@@ -5,7 +5,7 @@ const QuizController = require("./controllers/QuizController");
 
 // google data
 fetch(FETCH_URL).then(response => response.json()).then(response => {
-  QuizController.questions = response.values;
+  QuizController.data = response.values;
 });
 
 module.exports = {};

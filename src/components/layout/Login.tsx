@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { LogoContainer } from "../common/LogoContainer";
 import { Input } from "../inputs/Input";
 import { Button } from "../inputs/Button";
+import { useLogin } from "../../hooks/useLogin";
 
 const ContainerStyled = styled.div`
   padding: 10px;
@@ -32,6 +33,7 @@ const ButtonStyled = styled(Button)`
 export const Login = () => {
   const { t } = useTranslation();
   const [userName, setUserName] = useState("");
+  const { sendMessage } = useLogin();
   return (
     <ContainerStyled>
       <LogoContainer />
@@ -47,7 +49,7 @@ export const Login = () => {
           type={isEmpty(userName) ? "inactive" : "secondary"}
           label={t("labels.submit")}
           onClick={() => {
-            console.log(userName);
+            sendMessage({ name: userName });
           }}
           disabled={isEmpty(userName)}
         />
