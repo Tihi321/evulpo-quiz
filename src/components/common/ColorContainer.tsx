@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { IContainerProps, IStyledProps } from "../../types/layout";
 
-interface ButtonProps extends IStyledProps, IContainerProps {
+interface ColorContainerProps extends IStyledProps, IContainerProps {
   type?: "primary" | "secondary" | "success" | "error" | "inactive";
   noShadow?: boolean;
 }
@@ -40,7 +40,7 @@ export const ColorContainer = ({
   noShadow,
   children,
   ...props
-}: ButtonProps) => {
+}: ColorContainerProps) => {
   return (
     <ContainerStyled noShadow={noShadow} className={className} type={type} {...props}>
       {children}

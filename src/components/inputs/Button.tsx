@@ -11,7 +11,7 @@ interface ButtonProps extends IStyledProps {
   onClick?: () => void;
 }
 
-export const ButtonStyled = styled(({ size, disabled, children, ...rest }) => (
+const ButtonStyled = styled(({ size, disabled, children, ...rest }) => (
   <button disabled={disabled} {...rest}>
     {children}
   </button>
@@ -36,8 +36,8 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <ColorContainer noShadow={disabled} type={type}>
-      <ButtonStyled className={className} size={size} disabled={disabled} {...props}>
+    <ColorContainer noShadow={disabled} type={type} className={className}>
+      <ButtonStyled size={size} disabled={disabled} {...props}>
         {label}
       </ButtonStyled>
     </ColorContainer>
