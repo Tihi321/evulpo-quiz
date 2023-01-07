@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../enums/routes";
 
-export const ContainerStyled = styled.main`
+const ContainerStyled = styled.div`
   grid-area: content;
   padding: 1em;
 `;

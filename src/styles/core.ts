@@ -1,7 +1,6 @@
 import { css } from "styled-components";
 
 import { EBreakpoints, ESide } from "../enums/style";
-import { backgroundColor } from "../themes";
 import { media } from "../utils/responsive";
 import {
   bodyResponsiveFontStyles,
@@ -21,11 +20,6 @@ export const coreStyles = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "Lato", sans-serif;
-    background: ${backgroundColor};
-
-    ${media(EBreakpoints.LAPTOP, ESide.UP)} {
-      padding: 55px 30px;
-    }
   }
 
   body {

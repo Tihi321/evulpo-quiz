@@ -8,7 +8,7 @@ import { useTheme } from "../../hooks/useTheme";
 import { RoundIcon } from "../common/RoundIcon";
 import { whiteColor } from "../../themes/selectors";
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled.div`
   display: flex;
   justify-content: end;
 `;

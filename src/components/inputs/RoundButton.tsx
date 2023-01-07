@@ -4,7 +4,7 @@ import { useTheme } from "../../hooks/useTheme";
 import { IStyledProps } from "../../types/layout";
 import { RoundIcon } from "../common/RoundIcon";
 
-export interface IRoundButtonProps extends IStyledProps {
+interface IRoundButtonProps extends IStyledProps {
   checked: boolean;
   value: string;
   type?: "primary" | "inactive" | "success" | "error";

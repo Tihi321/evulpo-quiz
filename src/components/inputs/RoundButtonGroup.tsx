@@ -9,14 +9,14 @@ import { RoundButton } from "./RoundButton";
 import { IStyledProps } from "../../types/layout";
 import { ColorContainer } from "../common/ColorContainer";
 
-export type TRoundButtonItem = {
+type TRoundButtonItem = {
   value: string;
   label?: string;
   disabled?: boolean;
   type?: "primary" | "inactive" | "success" | "error";
 };
 
-export interface IRoundButtonGroupProps extends IStyledProps {
+interface IRoundButtonGroupProps extends IStyledProps {
   items: Array<TRoundButtonItem>;
   selected: string;
   id?: string;
