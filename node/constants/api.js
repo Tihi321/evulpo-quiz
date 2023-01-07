@@ -1,4 +1,3 @@
-const SOCKET_IO_PORT = 4567;
 const EXPRESS_ADMIN_PORT = 7894;
 const API_KEY = 'AIzaSyCfuQLHd0Aha7KuNvHK0p6V6R_0kKmsRX4';
 const FETCH_SHEETS_API = "https://sheets.googleapis.com/v4/spreadsheets";
@@ -13,7 +12,6 @@ const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 
 
 module.exports = {
-  SOCKET_IO_PORT,
   EXPRESS_ADMIN_PORT,
   FETCH_URL
 };
