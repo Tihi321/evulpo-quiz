@@ -1,5 +1,13 @@
 {
   "labels": {
+    "next": "Next",
+    "submit": "Submit",
+    "user_name": "user name",
     "background": "BG"
+  },
+  "not_found": {
+    "title": "Page not found",
+    "route": "you can go to home by following this link",
+    "home_label": "Home"
   }
 }
