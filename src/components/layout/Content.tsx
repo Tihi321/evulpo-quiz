@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export const ContentContainer = styled.main`
   grid-area: content;
@@ -7,5 +8,6 @@ export const ContentContainer = styled.main`
 `;
 
 export const Content = () => {
-  return <ContentContainer>Content</ContentContainer>;
+  const { t } = useTranslation();
+  return <ContentContainer>{t("labels.background")}</ContentContainer>;
 };
