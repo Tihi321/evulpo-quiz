@@ -1,9 +1,15 @@
 import { css } from "styled-components";
 
 import { EBreakpoints, ESide } from "../enums/style";
-import { defaultTextColor } from "../themes";
+import { backgroundColor } from "../themes";
 import { media } from "../utils/responsive";
-import { bodyResponsiveFontStyles, heading01ResponsiveFontStyles, heading02ResponsiveFontStyles, heading03ResponsiveFontStyles, heading04ResponsiveFontStyles } from "./fonts";
+import {
+  bodyResponsiveFontStyles,
+  heading01ResponsiveFontStyles,
+  heading02ResponsiveFontStyles,
+  heading03ResponsiveFontStyles,
+  heading04ResponsiveFontStyles,
+} from "./fonts";
 
 export const coreStyles = css`
   * {
@@ -11,10 +17,11 @@ export const coreStyles = css`
     margin: 0;
     padding: 0;
   }
-  body{
+  body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: ${defaultTextColor}
+    font-family: "Lato", sans-serif;
+    background: ${backgroundColor};
 
     ${media(EBreakpoints.LAPTOP, ESide.UP)} {
       padding: 55px 30px;

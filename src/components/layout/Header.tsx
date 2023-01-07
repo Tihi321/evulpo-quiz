@@ -1,38 +1,51 @@
+import isEqual from "lodash/isEqual";
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+
+import { ETheme } from "../../enums/store";
 import { useTheme } from "../../hooks/useTheme";
-import { headerBGColor, headerTextColor } from "../../themes";
-import { Button } from "../common/Button";
+import { RoundIcon } from "../common/RoundIcon";
+import { whiteColor } from "../../themes/selectors";
 
 const HeaderContainer = styled.header`
-  grid-area: header;
-  padding: 1em;
-  background-color: ${headerBGColor};
-  color: ${headerTextColor};
-  text-align: center;
-  font-weight: bold;
   display: flex;
+  justify-content: end;
 `;
 
-const HeaderTitle = styled.h1`
-  flex: 1;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+const LabelStyled = styled.div`
+  color: ${whiteColor};
 `;
 
-const ButtonStyled = styled(Button)`
-  max-width: 80px;
-  text-transform: capitalize;
-  font-weight: bold;
+const ButtonStyled = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
 `;
 
 export const Header = () => {
-  const { theme, switchTheme } = useTheme();
+  const { t } = useTranslation();
+  const { theme, styledTheme, setTheme } = useTheme();
   return (
     <HeaderContainer>
-      <HeaderTitle>The Recipe Collection</HeaderTitle>
-      <ButtonStyled onClick={switchTheme} label={theme} />
+      <LabelStyled>{t("labels.background")}</LabelStyled>
+      <ButtonStyled onClick={() => setTheme(ETheme.Light)}>
+        <RoundIcon
+          borderColor={styledTheme.colors.white}
+          bgColor={
+            isEqual(theme, ETheme.Light) ? styledTheme.colors.white : styledTheme.colors.transparent
+          }
+        />
+      </ButtonStyled>
+      <ButtonStyled onClick={() => setTheme(ETheme.Dark)}>
+        <RoundIcon
+          borderColor={styledTheme.colors.white}
+          bgColor={
+            isEqual(theme, ETheme.Dark) ? styledTheme.colors.white : styledTheme.colors.transparent
+          }
+        />
+      </ButtonStyled>
     </HeaderContainer>
   );
 };

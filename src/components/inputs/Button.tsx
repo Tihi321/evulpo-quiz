@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IStyledProps } from "../../types/layout";
-import { ColorContainer } from "./ColorContainer";
+import { ColorContainer } from "../common/ColorContainer";
 
 interface ButtonProps extends IStyledProps {
   size?: "small" | "regular";
@@ -10,21 +10,6 @@ interface ButtonProps extends IStyledProps {
   label: string;
   onClick?: () => void;
 }
-
-const getTypeColor = (type: "primary" | "secondary" | "success" | "error" | "inactive"): string => {
-  switch (type) {
-    case "secondary":
-      return "#FFF8A2";
-    case "inactive":
-      return "#F4E9F7";
-    case "success":
-      return "#DBFFC8";
-    case "error":
-      return "#FFB59F";
-    default:
-      return "#CBA8FF";
-  }
-};
 
 export const ButtonStyled = styled(({ size, disabled, children, ...rest }) => (
   <button disabled={disabled} {...rest}>

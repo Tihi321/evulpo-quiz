@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import { RoundButton } from "./RoundButton";
 import { IStyledProps } from "../../types/layout";
-import { ColorContainer } from "./ColorContainer";
+import { ColorContainer } from "../common/ColorContainer";
 
 export type TRoundButtonItem = {
   value: string;

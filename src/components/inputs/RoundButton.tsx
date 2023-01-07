@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
+import { useTheme } from "../../hooks/useTheme";
 import { IStyledProps } from "../../types/layout";
+import { RoundIcon } from "../common/RoundIcon";
 
 export interface IRoundButtonProps extends IStyledProps {
   checked: boolean;
@@ -11,16 +13,16 @@ export interface IRoundButtonProps extends IStyledProps {
   disabled?: boolean;
 }
 
-const getTypeColor = (type: "primary" | "inactive" | "success" | "error"): string => {
+const getTypeColor = (type: "primary" | "inactive" | "success" | "error", theme: any): string => {
   switch (type) {
     case "inactive":
-      return "#F4E9F7";
+      return theme.colors.whiteLilac;
     case "success":
-      return "#DBFFC8";
+      return theme.colors.snowFlurry;
     case "error":
-      return "#FFB59F";
+      return theme.colors.waxFlower;
     default:
-      return "#9F7381";
+      return theme.colors.bazar;
   }
 };
 
@@ -32,24 +34,6 @@ const ContainerStyled = styled(({ disabled, children, ...rest }) => (
   align-items: center;
   justify-content: center;
   width: fit-content;
-`;
-
-const SpanStyled = styled(({ type, checked, children, ...rest }) => (
-  <div {...rest}>{children}</div>
-))`
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: ${(props) => {
-    let bgColor = "transparent";
-    const borderColor = getTypeColor(props.type);
-
-    if (props.checked) {
-      bgColor = getTypeColor(props.type);
-    }
-
-    return `repeating-radial-gradient(circle, ${bgColor} 0%, ${bgColor} 40%, transparent 40%, transparent 55%, ${borderColor} 55%, ${borderColor} 100%)`;
-  }};
 `;
 
 const LabelStyled = styled.span`
@@ -65,6 +49,8 @@ export const RoundButton = ({
   onClick,
   className,
 }: IRoundButtonProps) => {
+  const { styledTheme } = useTheme();
+
   return (
     <ContainerStyled
       disabled={disabled}
@@ -78,7 +64,10 @@ export const RoundButton = ({
       }}
     >
       {label && <LabelStyled className="evu--round-button-label">{label}</LabelStyled>}
-      <SpanStyled checked={checked} type={type} className="evu--round-button-input" />
+      <RoundIcon
+        bgColor={checked ? getTypeColor(type, styledTheme) : styledTheme.colors.transparent}
+        borderColor={getTypeColor(type, styledTheme)}
+      />
     </ContainerStyled>
   );
 };

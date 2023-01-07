@@ -4,15 +4,7 @@ import { ThemeProps } from "styled-components";
 
 const themeColors = (state: ThemeProps<any>) => get(state, ["theme", "colors"], {});
 
-export const focusColor = createSelector(themeColors, (colors: object) => get(colors, "focus"));
-
-export const primaryColor = createSelector(themeColors, (colors: object) => get(colors, "primary"));
-
-export const secondaryColor = createSelector(themeColors, (colors: object) =>
-  get(colors, "secondary")
+export const whiteColor = createSelector(themeColors, (colors: object) => get(colors, "white"));
+export const backgroundColor = createSelector(themeColors, (colors: object) =>
+  get(colors, "background")
 );
-
-export const defaultTextColor = primaryColor;
-export const headerBGColor = focusColor;
-export const headerTextColor = primaryColor;
-export const asideBackgroundColor = secondaryColor;

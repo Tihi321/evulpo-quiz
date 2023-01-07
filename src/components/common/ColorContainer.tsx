@@ -7,25 +7,28 @@ interface ButtonProps extends IStyledProps, IContainerProps {
   noShadow?: boolean;
 }
 
-const getTypeColor = (type: "primary" | "secondary" | "success" | "error" | "inactive"): string => {
+const getTypeColor = (
+  type: "primary" | "secondary" | "success" | "error" | "inactive",
+  theme: any
+): string => {
   switch (type) {
     case "secondary":
-      return "#FFF8A2";
+      return theme.colors.picasso;
     case "inactive":
-      return "#F4E9F7";
+      return theme.colors.whiteLilac;
     case "success":
-      return "#DBFFC8";
+      return theme.colors.snowFlurry;
     case "error":
-      return "#FFB59F";
+      return theme.colors.waxFlower;
     default:
-      return "#CBA8FF";
+      return theme.colors.mauve;
   }
 };
 
 export const ContainerStyled = styled(({ type, noShadow, children, ...rest }) => (
   <div {...rest}>{children}</div>
 ))`
-  background-color: ${({ type }) => getTypeColor(type)};
+  background-color: ${({ type, theme }) => getTypeColor(type, theme)};
   box-shadow: ${({ noShadow }) => !noShadow && "0px 2px"};
   width: fit-content;
   border-radius: 6px;
