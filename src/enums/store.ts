@@ -5,4 +5,5 @@ export enum ETheme {
 
 export enum StateKeys {
   Theme = "theme",
+  PlayerInfo = "playerInfo",
 }
