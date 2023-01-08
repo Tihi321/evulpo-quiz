@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { useGame } from "../../hooks/useGame";
@@ -27,8 +27,24 @@ export const Game = () => {
     options,
     onAnswerChange,
     selected,
+    questionSubmitted,
+    lastQuestion,
     onSubmit,
+    onNext,
+    onFinish,
   } = useGame();
+
+  const submitButtonLabel = useMemo(() => {
+    if (questionSubmitted && lastQuestion) {
+      return t("labels.finish");
+    }
+
+    if (questionSubmitted) {
+      return t("labels.next");
+    }
+
+    return t("labels.submit");
+  }, [questionSubmitted, lastQuestion]);
 
   return (
     <ContainerStyled>
@@ -37,7 +53,24 @@ export const Game = () => {
       </QuestionTitle>
       <QuestionTitle>{questionTitle}</QuestionTitle>
       <RoundButtonGroup selected={selected} items={options} onChange={onAnswerChange} />
-      <Button label={t("labels.next")} onClick={onSubmit} size="small" type="secondary" />
+      <Button
+        label={submitButtonLabel}
+        onClick={() => {
+          if (questionSubmitted && lastQuestion) {
+            onFinish();
+            return;
+          }
+
+          if (questionSubmitted) {
+            onNext();
+            return;
+          }
+
+          onSubmit();
+        }}
+        size="small"
+        type="secondary"
+      />
     </ContainerStyled>
   );
 };

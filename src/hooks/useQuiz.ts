@@ -10,26 +10,40 @@ import { getAreQuestionsReady } from "../selectors";
 
 export const useQuiz = () => {
   const navigate = useNavigate();
-  const { onStateKeyChange, stateSelector } = useStateStore();
-  const { sendMessage, data } = useSocketData({
+  const { stateSelector, onStateObjectChange } = useStateStore();
+  const questionDataReceived = useStateSelector(getAreQuestionsReady(stateSelector));
+
+  const { sendMessage, data: questionsData } = useSocketData({
     message: GAME_MESSAGES.QUESTIONS,
     initialState: [],
     mirror: false,
   });
+  const { data: score } = useSocketData({
+    message: GAME_MESSAGES.SCORE,
+    initialState: 0,
+    mirror: true,
+  });
 
   useEffect(() => {
-    sendMessage();
+    if (!questionDataReceived) {
+      sendMessage();
+    }
   }, []);
 
   useEffect(() => {
-    if (!isEmpty(data)) {
-      console.log(data);
-      onStateKeyChange(StateKeys.Questions, data);
+    onStateObjectChange({
+      [StateKeys.Questions]: questionsData,
+      [StateKeys.PlayerScore]: score,
+    });
+  }, [score, questionsData]);
+
+  useEffect(() => {
+    if (!isEmpty(questionsData)) {
       navigate(ROUTES.QUIZ);
     }
-  }, [data]);
+  }, [questionsData]);
 
   return {
-    showLoader: !useStateSelector(getAreQuestionsReady(stateSelector)),
+    showLoader: !questionDataReceived,
   };
 };

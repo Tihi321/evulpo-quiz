@@ -34,5 +34,8 @@ export const useSocketData = ({
     selector: generateSelector(data),
     data,
     sendMessage,
+    resetData: () => {
+      setData(initialState);
+    },
   };
 };

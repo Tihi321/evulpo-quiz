@@ -1,4 +1,5 @@
-import { isEmpty } from "lodash";
+import get from "lodash/get";
+import isEmpty from "lodash/isEmpty";
 import { useEffect } from "react";
 import { useStateStore } from "ts-use";
 import { GAME_MESSAGES } from "../enums/socket";
@@ -9,7 +10,7 @@ import { ROUTES } from "../enums/routes";
 
 export const useLogin = () => {
   const navigate = useNavigate();
-  const { onStateKeyChange } = useStateStore();
+  const { onStateObjectChange } = useStateStore();
   const { sendMessage, data } = useSocketData({
     message: GAME_MESSAGES.ADD_PLAYER,
     initialState: {},
@@ -18,7 +19,13 @@ export const useLogin = () => {
 
   useEffect(() => {
     if (!isEmpty(data)) {
-      onStateKeyChange(StateKeys.PlayerInfo, data);
+      onStateObjectChange({
+        [StateKeys.PlayerInfo]: {
+          id: get(data, ["id"]),
+          name: get(data, ["name"]),
+        },
+        [StateKeys.PlayerScore]: get(data, ["score"]),
+      });
       navigate(ROUTES.QUIZ);
     }
   }, [data]);
