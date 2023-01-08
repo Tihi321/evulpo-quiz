@@ -6,8 +6,11 @@ import { LogoContainer } from "../common/LogoContainer";
 import { Input } from "../inputs/Input";
 import { Button } from "../inputs/Button";
 import { useLogin } from "../../hooks/useLogin";
+import { innerCenterContainer } from "../../styles/shared";
 
 const ContainerStyled = styled.div`
+  ${innerCenterContainer}
+  background-color: ${(props) => props.theme.colors.cashmere};
   padding: 10px;
 `;
 

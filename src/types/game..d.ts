@@ -3,3 +3,7 @@ export type TPlayerInfo = {
   name: string;
   score: number;
 };
+
+export type TGameInfo = {
+  questionIndex: number;
+};

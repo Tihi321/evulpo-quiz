@@ -6,10 +6,10 @@ import { RoundIcon } from "../common/RoundIcon";
 
 interface IRoundButtonProps extends IStyledProps {
   checked: boolean;
-  value: string;
+  value: string | number;
   type?: "primary" | "inactive" | "success" | "error";
   label?: string | ReactElement;
-  onClick: (args: { value: string; checked: boolean }) => void;
+  onClick: (args: { value: string | number; checked: boolean }) => void;
   disabled?: boolean;
 }
 

@@ -6,12 +6,9 @@ interface CenterContainerProps extends IStyledProps, IContainerProps {}
 
 export const ContainerStyled = styled.div`
   height: 100%;
-  max-height: 540px;
+  max-height: 700px;
   width: 100%;
-  max-width: 600px;
-  background-color: ${(props) => props.theme.colors.cashmere};
-  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
-  border-radius: 10px;
+  max-width: 800px;
 `;
 
 export const CenterContainer = ({ className, children, ...props }: CenterContainerProps) => {

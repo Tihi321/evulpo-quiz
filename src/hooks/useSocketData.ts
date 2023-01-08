@@ -25,7 +25,7 @@ export const useSocketData = ({
     };
   }, [message, mirror]);
 
-  const sendMessage = (args: any) => {
+  const sendMessage = (args?: any) => {
     SocketClient.emit(generateSocketDataMessage(message).command, args);
     SocketClient.once(generateSocketDataMessage(message).response, setData);
   };

@@ -16,6 +16,8 @@ const GAME_MESSAGES = {
   ADD_PLAYER: "AddPlayer",
   PLAYER_ADDED: "PlayerAdded",
   PLAYERS_DATA: "PlayersData",
+  QUESTIONS: "Questions",
+  SCORE: "Score",
 };
 
 
