@@ -33,7 +33,7 @@ const ButtonStyled = styled(Button)`
 export const Login = () => {
   const { t } = useTranslation();
   const [userName, setUserName] = useState("");
-  const { sendMessage } = useLogin();
+  const { register } = useLogin();
   return (
     <ContainerStyled>
       <LogoContainer />
@@ -49,7 +49,7 @@ export const Login = () => {
           type={isEmpty(userName) ? "inactive" : "secondary"}
           label={t("labels.submit")}
           onClick={() => {
-            sendMessage({ name: userName });
+            register({ name: userName });
           }}
           disabled={isEmpty(userName)}
         />
