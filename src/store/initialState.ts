@@ -1,10 +1,9 @@
-import { ETheme, StateKeys } from "../enums/store";
+import { EAnswerInfo, ETheme, StateKeys } from "../enums/store";
 
 export const initialState = {
   [StateKeys.Theme]: ETheme.Dark,
   [StateKeys.PlayerInfo]: {},
   [StateKeys.Questions]: [],
-  [StateKeys.Game]: {
-    questionIndex: 0,
-  },
+  [StateKeys.QuestionIndex]: 0,
+  [StateKeys.AnswerInfoState]: EAnswerInfo.Hidden,
 };

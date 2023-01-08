@@ -1,7 +1,11 @@
 {
   "labels": {
+    "correct": "Correct",
+    "incorrect": "Incorrect",
     "next": "Next",
     "submit": "Submit",
+    "finish": "Finish",
+    "retry": "Retry",
     "user_name": "user name",
     "background": "BG"
   },

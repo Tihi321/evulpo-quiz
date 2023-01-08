@@ -18,6 +18,7 @@ const GAME_MESSAGES = {
   PLAYERS_DATA: "PlayersData",
   QUESTIONS: "Questions",
   SCORE: "Score",
+  SUBMIT_ANSWER: "SubmitAnswer",
 };
 
 

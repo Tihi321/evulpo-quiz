@@ -22,7 +22,7 @@ const ContainerStyled = styled(({ animate, children, ...rest }) => <div {...rest
 `;
 
 interface CricleIconnProps extends IStyledProps {
-  text?: string;
+  text?: string | number;
   animate?: boolean;
 }
 

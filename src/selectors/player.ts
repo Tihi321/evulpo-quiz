@@ -1,5 +1,4 @@
 import get from "lodash/get";
-import toString from "lodash/toString";
 import { createSelector } from "reselect";
 import { StateKeys } from "../enums/store";
 import { initialState } from "../store/initialState";
@@ -9,5 +8,5 @@ const getPlayerInfoState = (stateSelector: any) =>
     get(state, StateKeys.PlayerInfo, {})
   );
 
-export const getPlayerScore = (stateSelector: any) =>
-  createSelector(getPlayerInfoState(stateSelector), (state) => toString(get(state, ["score"], 0)));
+export const getPlayerId = (stateSelector: any) =>
+  createSelector(getPlayerInfoState(stateSelector), (state) => get(state, ["id"]));

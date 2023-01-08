@@ -6,4 +6,5 @@ export const GAME_MESSAGES = {
   ADD_PLAYER: "AddPlayer",
   QUESTIONS: "Questions",
   SCORE: "Score",
+  SUBMIT_ANSWER: "SubmitAnswer",
 };

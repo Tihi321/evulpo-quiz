@@ -65,10 +65,9 @@ export const RoundButtonGroup = ({
   return (
     <ContainerStyled className={className}>
       {map(items, (values, index) => (
-        <RoundButtonContainer>
+        <RoundButtonContainer key={`${id}-${index}`}>
           {index + 1}.{" "}
           <RoundButton
-            key={`${id}-${index}`}
             onClick={(values) => {
               if (!get(values, ["checked"])) {
                 onChange(values);

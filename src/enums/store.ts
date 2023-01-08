@@ -3,9 +3,17 @@ export enum ETheme {
   Light = "light",
 }
 
+export enum EAnswerInfo {
+  Hidden = "hidden",
+  Correct = "correct",
+  Incorrect = "incorrect",
+}
+
 export enum StateKeys {
   Theme = "theme",
+  PlayerScore = "playerScore",
   PlayerInfo = "playerInfo",
   Questions = "questions",
-  Game = "game",
+  QuestionIndex = "questionIndex",
+  AnswerInfoState = "answerInfoState",
 }

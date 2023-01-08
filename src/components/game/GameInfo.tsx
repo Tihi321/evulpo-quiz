@@ -1,6 +1,9 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { useTranslation } from "react-i18next";
+
 import { flexCentered } from "../../styles/shared";
+import { ColorContainer } from "../common/ColorContainer";
 import { LogoContainer } from "../common/LogoContainer";
 import { CricleIcon } from "../common/CricleIcon";
 import { useGameInfo } from "../../hooks/useGameInfo";
@@ -37,7 +40,8 @@ const CenteredContainer = styled.div`
 `;
 
 export const GameInfo = () => {
-  const { topic, score } = useGameInfo();
+  const { t } = useTranslation();
+  const { topic, score, answerInfoCorrect, answerInfoIncorrect } = useGameInfo();
 
   return (
     <SidebarContentStyled>
@@ -45,6 +49,10 @@ export const GameInfo = () => {
       <TopicStyled>{topic}</TopicStyled>
       <CenteredContainer>
         <CricleIcon text={score} />
+      </CenteredContainer>
+      <CenteredContainer>
+        {answerInfoCorrect && <ColorContainer>{t("labels.correct")}</ColorContainer>}
+        {answerInfoIncorrect && <ColorContainer>{t("labels.incorrect")}</ColorContainer>}
       </CenteredContainer>
     </SidebarContentStyled>
   );
