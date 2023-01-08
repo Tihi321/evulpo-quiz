@@ -4,7 +4,7 @@ import { IStyledProps } from "../../types/layout";
 
 const LogoStyled = styled.svg`
   .fill-path {
-    fill: #9f7381;
+    fill: ${(props) => props.theme.colors.bazar};
   }
 `;
 

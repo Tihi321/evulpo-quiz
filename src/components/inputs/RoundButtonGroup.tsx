@@ -9,8 +9,8 @@ import { RoundButton } from "./RoundButton";
 import { IStyledProps } from "../../types/layout";
 import { ColorContainer } from "../common/ColorContainer";
 
-type TRoundButtonItem = {
-  value: string;
+export type TRoundButtonItem = {
+  value: string | number;
   label?: string;
   disabled?: boolean;
   type?: "primary" | "inactive" | "success" | "error";
@@ -18,11 +18,11 @@ type TRoundButtonItem = {
 
 interface IRoundButtonGroupProps extends IStyledProps {
   items: Array<TRoundButtonItem>;
-  selected: string;
+  selected: string | number;
   id?: string;
   disabled?: boolean;
   type?: "primary" | "inactive" | "success" | "error";
-  onChange: (args: { value: string; checked: boolean }) => void;
+  onChange: (args: { value: string | number; checked: boolean }) => void;
 }
 
 const ContainerStyled = styled(({ side, children, ...rest }) => <div {...rest}>{children}</div>)`

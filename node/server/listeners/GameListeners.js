@@ -19,6 +19,9 @@ class GameListeners {
     GameListeners.client.on(generateSocketDataMessage(GAME_MESSAGES.PLAYERS_DATA).command, () => {
       GameListeners.client.emit(generateSocketDataMessage(GAME_MESSAGES.PLAYERS_DATA).response, QuizController.players);
     });
+    GameListeners.client.on(generateSocketDataMessage(GAME_MESSAGES.QUESTIONS).command, () => {
+      GameListeners.client.emit(generateSocketDataMessage(GAME_MESSAGES.QUESTIONS).response, QuizController.questions);
+    });
   }
 }
 

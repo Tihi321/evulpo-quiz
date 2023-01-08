@@ -18,11 +18,10 @@ export const useLogin = () => {
 
   useEffect(() => {
     if (!isEmpty(data)) {
-      console.log(data);
       onStateKeyChange(StateKeys.PlayerInfo, data);
       navigate(ROUTES.QUIZ);
     }
-  }, [data, navigate]);
+  }, [data]);
 
   return {
     register: sendMessage,

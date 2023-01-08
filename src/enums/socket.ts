@@ -4,4 +4,6 @@ export const MESSAGE_MIRROR = "Mirror";
 
 export const GAME_MESSAGES = {
   ADD_PLAYER: "AddPlayer",
+  QUESTIONS: "Questions",
+  SCORE: "Score",
 };
