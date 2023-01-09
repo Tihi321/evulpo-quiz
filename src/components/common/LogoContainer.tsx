@@ -4,8 +4,7 @@ import { Logo } from "./Logo";
 
 const ContainerStyled = styled.div`
   padding: 50px 10px;
-  max-width: 400px;
-  margin: auto;
+  width: 80%;
 `;
 
 const LogoStyled = styled(Logo)`
@@ -13,9 +12,9 @@ const LogoStyled = styled(Logo)`
   height: auto;
 `;
 
-export const LogoContainer = () => {
+export const LogoContainer = ({ ...rest }) => {
   return (
-    <ContainerStyled>
+    <ContainerStyled {...rest}>
       <LogoStyled />
     </ContainerStyled>
   );

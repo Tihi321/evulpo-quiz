@@ -42,6 +42,19 @@ const RoundButtonContainer = styled.div`
   display: flex;
   align-items: center;
   padding-bottom: 8px;
+  width: 100%;
+
+  .evu--color-container {
+    width: auto;
+  }
+
+  .evu--round-button {
+    width: 100%;
+  }
+
+  .evu--round-button-label {
+    flex: 1;
+  }
 `;
 
 const ColorContainerStyled = styled(ColorContainer)`

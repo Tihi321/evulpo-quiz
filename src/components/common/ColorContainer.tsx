@@ -42,7 +42,12 @@ export const ColorContainer = ({
   ...props
 }: ColorContainerProps) => {
   return (
-    <ContainerStyled noShadow={noShadow} className={className} type={type} {...props}>
+    <ContainerStyled
+      noShadow={noShadow}
+      className={`evu--color-container ${className}`}
+      type={type}
+      {...props}
+    >
       {children}
     </ContainerStyled>
   );

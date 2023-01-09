@@ -8,5 +8,8 @@ const getPlayerInfoState = (stateSelector: any) =>
     get(state, StateKeys.PlayerInfo, {})
   );
 
+export const getPlayerName = (stateSelector: any) =>
+  createSelector(getPlayerInfoState(stateSelector), (state) => get(state, ["name"]));
+
 export const getPlayerId = (stateSelector: any) =>
   createSelector(getPlayerInfoState(stateSelector), (state) => get(state, ["id"]));

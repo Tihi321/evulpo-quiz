@@ -2,6 +2,6 @@ export const ROUTES = {
   ROOT: "/",
   LOGIN: "/login",
   QUIZ: "/quiz",
-  INFO: "/info",
+  SUMMARY: "/summary",
   NOT_ROUND: "*",
 };
