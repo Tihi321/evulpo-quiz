@@ -9,6 +9,10 @@ export class SocketClient {
     SocketClient.socketIo.on(...args);
   }
 
+  static onConnection(callback: Function) {
+    SocketClient.socketIo.on("connect", callback);
+  }
+
   static once(...args: any[]) {
     SocketClient.socketIo.once(...args);
   }
