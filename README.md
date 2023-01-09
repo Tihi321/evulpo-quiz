@@ -44,7 +44,7 @@ Communication is going through sockets, it provides real time data. As api call 
 
 There are 3 servers/ports on localhost, express server on port 7894 for hall of fame and assets page. Idea is to have admin page that can check results of players. Socket server on 4567. Client server on port 3000
 
-At the moment this was not tested, on other browsers except chrome. Tere is also a bug when first client joins, it neeeds to refresh website after it submits name, and submit again, will open git issue and will address it as soon as possible.
+At the moment this was not tested, on other browsers except chrome. There is also a bug when first client joins, it neeeds to refresh website after it submits name, and submit again, will open git issue and will address it as soon as possible.
 
 ```
   yarn
