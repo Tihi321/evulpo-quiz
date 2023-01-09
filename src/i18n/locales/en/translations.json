@@ -7,7 +7,10 @@
     "finish": "Finish",
     "retry": "Retry",
     "user_name": "user name",
-    "background": "BG"
+    "background": "BG",
+    "hall_of_fame": "Hall of Fame",
+    "about": "About",
+    "user": "User"
   },
   "not_found": {
     "title": "Page not found",
