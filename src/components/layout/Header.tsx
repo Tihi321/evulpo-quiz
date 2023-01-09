@@ -8,15 +8,31 @@ import { useTheme } from "../../hooks/useTheme";
 import { RoundIcon } from "../common/RoundIcon";
 import { whiteColor } from "../../themes/selectors";
 import { useHeader } from "../../hooks/useHeader";
+import { EXTERNAL_LINKS } from "../../enums/routes";
 
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: end;
   color: ${whiteColor};
+  flex-wrap: wrap;
 `;
 
-const NameStyled = styled.div`
+const InfoContainer = styled.div`
   flex: 1;
+`;
+
+const TextStyled = styled.div`
+  color: ${whiteColor};
+  font-size: 14px;
+  margin: 0 8px;
+  width: 100%;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  color: ${whiteColor};
+  font-size: 14px;
+  margin: 0 8px;
 `;
 
 const ButtonStyled = styled.button`
@@ -32,7 +48,14 @@ export const Header = () => {
   const { name } = useHeader();
   return (
     <HeaderContainer>
-      <NameStyled>{name}</NameStyled>
+      <InfoContainer>
+        <Link href={EXTERNAL_LINKS.ABOUT} target={"_blank"}>
+          {t("labels.about")}
+        </Link>
+        <Link href={EXTERNAL_LINKS.HALL_OF_FAME} target={"_blank"}>
+          {t("labels.hall_of_fame")}
+        </Link>
+      </InfoContainer>
       {t("labels.background")}
       <ButtonStyled onClick={() => setTheme(ETheme.Light)}>
         <RoundIcon
@@ -50,6 +73,11 @@ export const Header = () => {
           }
         />
       </ButtonStyled>
+      {name && (
+        <TextStyled>
+          {t("labels.user")}: {name}
+        </TextStyled>
+      )}
     </HeaderContainer>
   );
 };

@@ -21,12 +21,12 @@ const ContainerStyled = styled(({ animate, children, ...rest }) => <div {...rest
   }
 `;
 
-interface CricleIconnProps extends IStyledProps {
+interface CricleIconProps extends IStyledProps {
   text?: string | number;
   animate?: boolean;
 }
 
-export const CricleIcon = ({ className, animate, text = "?" }: CricleIconnProps) => {
+export const CricleIcon = ({ className, animate, text = "?" }: CricleIconProps) => {
   return (
     <ContainerStyled className={className} animate={animate}>
       {text}

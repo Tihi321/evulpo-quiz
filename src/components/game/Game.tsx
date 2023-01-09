@@ -1,17 +1,11 @@
 import React, { useMemo } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { useGame } from "../../hooks/useGame";
 import { RoundButtonGroup } from "../inputs/RoundButtonGroup";
 import { Button } from "../inputs/Button";
 import { flexCentered } from "../../styles/shared";
-
-const textStyle = css`
-  color: ${(props) => props.theme.colors.bazar};
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-`;
+import { CricleIcon } from "../common/CricleIcon";
 
 const ContainerStyled = styled.div`
   width: 100%;
@@ -21,13 +15,22 @@ const ContainerStyled = styled.div`
   flex-direction: column;
 `;
 
-const LabelStyled = styled.div`
-  ${textStyle}
+const CricleIconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const CricleIconStyled = styled(CricleIcon)`
+  width: 60px;
+  height: 60px;
 `;
 
 const QuestionTitle = styled.h2`
-  ${textStyle}
   ${flexCentered}
+  color: ${(props) => props.theme.colors.bazar};
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
   height: 200px;
 `;
 
@@ -71,9 +74,9 @@ export const Game = () => {
 
   return (
     <ContainerStyled>
-      <LabelStyled>
-        {questionNumber}/{numberOfQuestions}
-      </LabelStyled>
+      <CricleIconContainer>
+        <CricleIconStyled text={`${questionNumber}/${numberOfQuestions}`} />
+      </CricleIconContainer>
       <QuestionTitle>{questionTitle}</QuestionTitle>
       <RoundButtonGroupStyled selected={selected} items={options} onChange={onAnswerChange} />
       <ButtonContainer>

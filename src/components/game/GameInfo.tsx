@@ -17,6 +17,10 @@ const fadeIn = keyframes`
   }
 `;
 
+const LogoContainerStyled = styled(LogoContainer)`
+  width: 100%;
+`;
+
 const SidebarContentStyled = styled.div`
   padding: 10px;
   opacity: 0;
@@ -63,7 +67,7 @@ export const GameInfo = () => {
 
   return (
     <SidebarContentStyled>
-      <LogoContainer />
+      <LogoContainerStyled />
       <TopicStyled>{topic}</TopicStyled>
       <CenteredContainer>
         <CricleIcon text={score} />

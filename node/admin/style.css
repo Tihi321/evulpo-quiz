@@ -7,7 +7,6 @@ body {
   display: flex;
   width: 100vw;
   height: 100vh;
-  align-items: center;
   justify-content: center;
   margin: 0;
 }
@@ -31,9 +30,25 @@ body::after {
 .center {
   width: 100%;
   max-width: 500px;
+  padding: 24px;
 }
 
 .title {
   padding-top: 50px;
   text-align: center;
+}
+
+.players {
+  padding-top: 24px;
+  font-size: 18px;
+}
+
+.player-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-name {
+  text-transform: uppercase;
+  font-weight: 700;
 }

@@ -1,3 +1,5 @@
+const reverse = require("lodash/reverse");
+const sortBy = require("lodash/sortBy");
 const shuffle = require("lodash/shuffle");
 const pick = require("lodash/pick");
 const find = require("lodash/find");
@@ -45,7 +47,7 @@ class QuizController {
   }
 
   static get playersData() {
-    return QuizController.players;
+    return reverse(sortBy(map(QuizController.players, values => values), values => get(values, ["score"])));
   }
 
   static addPlayer(name) {
