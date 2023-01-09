@@ -8,8 +8,8 @@ adminServer.get('/socket.io.js', function(req, res){
   res.sendFile(path.join(__dirname, '../libs/socket.io.min.js'));
 });
 
-adminServer.get('/about', function(req, res){
-  res.sendFile(path.join(__dirname, '../admin/about.html'));
+adminServer.get('/assets', function(req, res){
+  res.sendFile(path.join(__dirname, '../admin/assets.html'));
 });
 
 adminServer.use(express.static(path.join(__dirname, '../admin')));

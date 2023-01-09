@@ -8,5 +8,5 @@ export const ROUTES = {
 
 export const EXTERNAL_LINKS = {
   HALL_OF_FAME: "http://localhost:7894",
-  ABOUT: "http://localhost:7894/about",
+  ASSETS: "http://localhost:7894/assets",
 };

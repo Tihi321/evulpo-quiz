@@ -2,7 +2,9 @@
 
 Coding Task for Full Stack Developer at evulpo
 
-![Wolfie](./assets/mascot.png)
+<div align="center">
+   <img alt="Wolfie" src="./assets/mascot.png" width="120" />
+</div>
 
 ## Task Descriptiom
 
@@ -32,4 +34,14 @@ The idea was to try to use some of the A.I as tools, and ended up with design fi
 3. For mascot used stable diffusion
 4. ChatGPT decided on font, first we though on Calibri as this is a sans-serif font that is known for its clean, modern look and easy readability. It is a popular choice for websites and is available on most computers and devices. In the end we decided to go for Lato google font, it is safer option as it is webfont and is also popular choice for websites and is available in a wide range of styles and weights.
 
-![Logo](./assets/logo.svg)
+All assets can be seen on assets page
+
+## Start
+
+There are 3 routes on local host, server starts express server on port 7894, which contans hall of fame, all players that played, and assets page. Also starts socketio server on 4567. Client start react quiz webapp on port 3000
+
+```
+  yarn
+  yarn server
+  yarn client
+```
