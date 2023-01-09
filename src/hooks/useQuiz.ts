@@ -25,9 +25,7 @@ export const useQuiz = () => {
   });
 
   useEffect(() => {
-    if (!questionDataReceived) {
-      sendMessage();
-    }
+    sendMessage();
   }, []);
 
   useEffect(() => {

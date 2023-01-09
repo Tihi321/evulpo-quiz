@@ -1,21 +1,44 @@
 import React, { useMemo } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
 import { useGame } from "../../hooks/useGame";
 import { RoundButtonGroup } from "../inputs/RoundButtonGroup";
 import { Button } from "../inputs/Button";
+import { flexCentered } from "../../styles/shared";
+
+const textStyle = css`
+  color: ${(props) => props.theme.colors.bazar};
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+`;
 
 const ContainerStyled = styled.div`
   width: 100%;
   height: 100%;
-  padding: 24px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const LabelStyled = styled.div`
+  ${textStyle}
 `;
 
 const QuestionTitle = styled.h2`
-  color: ${(props) => props.theme.colors.bazar};
-  font-size: 24px;
-  font-weight: 700;
-  text-align: center;
+  ${textStyle}
+  ${flexCentered}
+  height: 200px;
+`;
+
+const RoundButtonGroupStyled = styled(RoundButtonGroup)`
+  width: 100%;
+  flex: 1;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: end;
 `;
 
 export const Game = () => {
@@ -48,29 +71,31 @@ export const Game = () => {
 
   return (
     <ContainerStyled>
-      <QuestionTitle>
+      <LabelStyled>
         {questionNumber}/{numberOfQuestions}
-      </QuestionTitle>
+      </LabelStyled>
       <QuestionTitle>{questionTitle}</QuestionTitle>
-      <RoundButtonGroup selected={selected} items={options} onChange={onAnswerChange} />
-      <Button
-        label={submitButtonLabel}
-        onClick={() => {
-          if (questionSubmitted && lastQuestion) {
-            onFinish();
-            return;
-          }
+      <RoundButtonGroupStyled selected={selected} items={options} onChange={onAnswerChange} />
+      <ButtonContainer>
+        <Button
+          label={submitButtonLabel}
+          onClick={() => {
+            if (questionSubmitted && lastQuestion) {
+              onFinish();
+              return;
+            }
 
-          if (questionSubmitted) {
-            onNext();
-            return;
-          }
+            if (questionSubmitted) {
+              onNext();
+              return;
+            }
 
-          onSubmit();
-        }}
-        size="small"
-        type="secondary"
-      />
+            onSubmit();
+          }}
+          size="small"
+          type="secondary"
+        />
+      </ButtonContainer>
     </ContainerStyled>
   );
 };

@@ -61,12 +61,15 @@ export const useGame = () => {
   useEffect(() => {
     if (isEmpty(answerData)) {
       onStateKeyChange(StateKeys.AnswerInfoState, EAnswerInfo.Hidden);
+      return;
     }
     if (get(answerData, ["isCorrect"])) {
       onStateKeyChange(StateKeys.AnswerInfoState, EAnswerInfo.Correct);
+      return;
     }
     if (!get(answerData, ["isCorrect"])) {
       onStateKeyChange(StateKeys.AnswerInfoState, EAnswerInfo.Incorrect);
+      return;
     }
   }, [answerData]);
 
@@ -107,7 +110,7 @@ export const useGame = () => {
       resetData();
       setSelectedAnswerIndex(0);
       onStateKeyChange(StateKeys.QuestionIndex, 0);
-      navigate(ROUTES.INFO);
+      navigate(ROUTES.SUMMARY);
     },
   };
 };

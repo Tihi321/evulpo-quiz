@@ -1,15 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
-import { ROUTES } from "../../enums/routes";
-import { innerCenterContainer } from "../../styles/shared";
+import { useSummary } from "../../hooks/useSumary";
+import { Button } from "../inputs/Button";
+import { CricleIcon } from "../common/CricleIcon";
+import { flexCentered, innerCenterContainer } from "../../styles/shared";
 import { LogoContainer } from "../common/LogoContainer";
 
 const ContainerStyled = styled.div`
   ${innerCenterContainer}
   background-color: ${(props) => props.theme.colors.cashmere};
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ContentStyled = styled.div`
@@ -17,32 +21,36 @@ const ContentStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
-const TextStyled = styled.div`
+const NameStyled = styled.div`
   color: ${(props) => props.theme.colors.bazar};
   font-weight: 700;
   font-size: 16px;
   line-height: 14px;
-  padding: 8px 0;
+  padding: 16px 0;
 `;
 
-const Bold = styled.div`
-  font-size: 0.875rem;
-  font-weight: bold;
+const ButtonContainer = styled.div`
+  ${flexCentered}
+  flex: 1;
 `;
 
-export const NotFound = () => {
+export const Summary = () => {
   const { t } = useTranslation();
+  const { score, onReset, name } = useSummary();
   return (
     <ContainerStyled>
       <LogoContainer />
       <ContentStyled>
-        <TextStyled>{t("not_found.title")}</TextStyled>
-        <TextStyled>{t("not_found.route")}</TextStyled>
-        <NavLink to={ROUTES.ROOT}>
-          <Bold>{t("not_found.home_label")}</Bold>
-        </NavLink>
+        <NameStyled>{name}</NameStyled>
+
+        <CricleIcon text={score} />
+
+        <ButtonContainer>
+          <Button label={t("labels.retry")} onClick={onReset} size="regular" type="secondary" />
+        </ButtonContainer>
       </ContentStyled>
     </ContainerStyled>
   );

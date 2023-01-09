@@ -7,14 +7,16 @@ import { ETheme } from "../../enums/store";
 import { useTheme } from "../../hooks/useTheme";
 import { RoundIcon } from "../common/RoundIcon";
 import { whiteColor } from "../../themes/selectors";
+import { useHeader } from "../../hooks/useHeader";
 
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: end;
+  color: ${whiteColor};
 `;
 
-const LabelStyled = styled.div`
-  color: ${whiteColor};
+const NameStyled = styled.div`
+  flex: 1;
 `;
 
 const ButtonStyled = styled.button`
@@ -27,9 +29,11 @@ const ButtonStyled = styled.button`
 export const Header = () => {
   const { t } = useTranslation();
   const { theme, styledTheme, setTheme } = useTheme();
+  const { name } = useHeader();
   return (
     <HeaderContainer>
-      <LabelStyled>{t("labels.background")}</LabelStyled>
+      <NameStyled>{name}</NameStyled>
+      {t("labels.background")}
       <ButtonStyled onClick={() => setTheme(ETheme.Light)}>
         <RoundIcon
           borderColor={styledTheme.colors.white}

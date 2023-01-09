@@ -12,6 +12,9 @@ const ContainerStyled = styled.div`
   ${innerCenterContainer}
   background-color: ${(props) => props.theme.colors.cashmere};
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ContentStyled = styled.div`

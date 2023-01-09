@@ -24,6 +24,9 @@ const SidebarContentStyled = styled.div`
   animation-fill-mode: forwards;
   animation-delay: 0.8s;
   animation-timing-function: ease-in;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 const TopicStyled = styled.h2`
@@ -37,6 +40,21 @@ const TopicStyled = styled.h2`
 
 const CenteredContainer = styled.div`
   ${flexCentered}
+  flex: 1;
+`;
+
+const LabelContainerStyled = styled.div`
+  opacity: 0;
+  animation: ${fadeIn} 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+`;
+
+const LabelStyled = styled.span`
+  display: block;
+  min-width: 130px;
+  text-align: center;
+  padding: 6px;
 `;
 
 export const GameInfo = () => {
@@ -51,8 +69,20 @@ export const GameInfo = () => {
         <CricleIcon text={score} />
       </CenteredContainer>
       <CenteredContainer>
-        {answerInfoCorrect && <ColorContainer>{t("labels.correct")}</ColorContainer>}
-        {answerInfoIncorrect && <ColorContainer>{t("labels.incorrect")}</ColorContainer>}
+        {answerInfoCorrect && (
+          <LabelContainerStyled>
+            <ColorContainer noShadow={true} type="success">
+              <LabelStyled>{t("labels.correct")}</LabelStyled>
+            </ColorContainer>
+          </LabelContainerStyled>
+        )}
+        {answerInfoIncorrect && (
+          <LabelContainerStyled>
+            <ColorContainer noShadow={true} type="error">
+              <LabelStyled>{t("labels.incorrect")}</LabelStyled>
+            </ColorContainer>
+          </LabelContainerStyled>
+        )}
       </CenteredContainer>
     </SidebarContentStyled>
   );
