@@ -39,7 +39,7 @@ const ButtonStyled = styled(Button)`
 export const Login = () => {
   const { t } = useTranslation();
   const [userName, setUserName] = useState("");
-  const { register } = useLogin();
+  const { register, disableSubmit } = useLogin();
   return (
     <ContainerStyled>
       <LogoContainer />
@@ -57,7 +57,7 @@ export const Login = () => {
           onClick={() => {
             register({ name: userName });
           }}
-          disabled={isEmpty(userName)}
+          disabled={isEmpty(userName) || disableSubmit}
         />
       </ContentStyled>
     </ContainerStyled>
