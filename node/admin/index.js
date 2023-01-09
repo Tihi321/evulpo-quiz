@@ -17,28 +17,6 @@ const CLASS_NAMES = {
   PLAYER_NAME: "player-name",
   PLAYER_SCORE: "player-score"
 };
-const TEMP_DATA = [
-  {
-      id: "4-g",
-      name: "g",
-      score: 17
-  },
-  {
-      id: "1-gfh",
-      name: "gfh",
-      score: 10
-  },
-  {
-      id: "3-fghh",
-      name: "fghh",
-      score: 0
-  },
-  {
-      id: "2-fgh",
-      name: "fgh",
-      score: 0
-  }
-]
 
 // helpers
 const generateSocketDataMessage = (command) => ({
@@ -75,11 +53,11 @@ socket.on(SOCKET_IO_MESSAGES.CLIENT_CONNECT, () => {
 
   socket.emit(generateSocketDataMessage(GAME_MESSAGES.PLAYERS_DATA).command);
   socket.once(generateSocketDataMessage(GAME_MESSAGES.PLAYERS_DATA).response, (data) => {
-    const playerDataHTML = getPlayersData(TEMP_DATA);
+    const playerDataHTML = getPlayersData(data);
     playersElement.innerHTML = playerDataHTML;
   });
   socket.on(generateSocketDataMessage(GAME_MESSAGES.PLAYERS_DATA).mirror, (data) => {
-    const playerDataHTML = getPlayersData(TEMP_DATA);
+    const playerDataHTML = getPlayersData(data);
     playersElement.innerHTML = playerDataHTML;
   });
 });
