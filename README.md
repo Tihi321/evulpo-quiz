@@ -36,9 +36,13 @@ The idea was to try to use some of the A.I as tools, and ended up with design fi
 
 All assets can be seen on assets page
 
+## Node backend
+
+Added backend to fetch data and to check answers, users do not know what is correct answer, server also provides place for admin.
+
 ## Start
 
-There are 3 routes on local host, server starts express server on port 7894, which contans hall of fame, all players that played, and assets page. Also starts socketio server on 4567. Client start react quiz webapp on port 3000
+There are 3 servers/ports on localhost, express server on port 7894 for hall of fame and assets page. Idea is to have admin page that can check results of players. Socket server on 4567. Client server on port 3000
 
 ```
   yarn
