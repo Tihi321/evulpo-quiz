@@ -36,9 +36,9 @@ The idea was to try to use some of the A.I as tools, and ended up with design fi
 
 All assets can be seen on assets page
 
-## Node backend
+## Tech
 
-Added backend to fetch data and to check answers, users do not know what is correct answer, server also provides place for admin.
+Communication is going through sockets, it provides real time data. As api call to goodgle is on server, data is fetched only once regardless on how many clients join. Checks and data is on server side, user is not aware of which is correct answer. Along with socket server there is one more express server for hall of fame and assets page. On Client side we use typescript, unlike server side, where vanilla javascript is used. React context is used for global state, through <a href="https://www.npmjs.com/package/ts-use" target="_blank">TS Use</a>, my library of hooks for React. Along with TS Use, another library of helpers is used <a href="https://www.npmjs.com/package/tsl-utils" target="_blank">TSL Utils</a> that i added to npm, just helper library to enable usage of selectors.
 
 ## Start
 
