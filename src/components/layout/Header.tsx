@@ -49,8 +49,8 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <InfoContainer>
-        <Link href={EXTERNAL_LINKS.ABOUT} target={"_blank"}>
-          {t("labels.about")}
+        <Link href={EXTERNAL_LINKS.ASSETS} target={"_blank"}>
+          {t("labels.assets")}
         </Link>
         <Link href={EXTERNAL_LINKS.HALL_OF_FAME} target={"_blank"}>
           {t("labels.hall_of_fame")}

@@ -52,3 +52,18 @@ body::after {
   text-transform: uppercase;
   font-weight: 700;
 }
+
+.assets-row {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+.assets-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.screens, .buttons, .designs, .mascots, .logos {
+  padding-top: 24px;
+}
